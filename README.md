@@ -1,5 +1,6 @@
 # Fact-based Counter Narrative Generation to Combat Hate Speech
-This repository contains the implementation of **Fact-based Counter Narrative Generation to Combat Hate Speech**, a counter narrative generation method that enhances CNs by providing non-aggressive, fact-based narratives with relevant background knowledge from two distinct sources, including a web search module. Our method significantly outperforms baselines, achieving an average factuality score of 0.915, compared to 0.741 and 0.701 for competitive baselines, and performs well in human evaluations.![[figure.jpeg]]
+This repository contains the implementation of **Fact-based Counter Narrative Generation to Combat Hate Speech**, a counter narrative generation method that enhances CNs by providing non-aggressive, fact-based narratives with relevant background knowledge from two distinct sources, including a web search module. Our method significantly outperforms baselines, achieving an average factuality score of 0.915, compared to 0.741 and 0.701 for competitive baselines, and performs well in human evaluations.
+![Fact-based Counter Narrative Generation to Combat Hate Speech](figure.jpeg)
 Authors: [Brian Wilk](https://000brian.github.io/), [Homaira Huda Shomee](https://hhshomee.github.io/), [Suman Kalyan Maity](https://sites.mst.edu/smaity/), [Sourav Medya](https://souravmedya.github.io/)
 ## Installation and usage
 ### Step 1: Clone the repository
