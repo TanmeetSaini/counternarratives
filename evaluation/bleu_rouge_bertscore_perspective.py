@@ -15,7 +15,7 @@ nltk.download('punkt')
 nltk.download('punkt_tab')
 
 # Perspective API setup
-API_KEY = 'AIzaSyB8p-KSBqNCBPRdSXbW-SS2Ohr_fU4I8cY'
+API_KEY = 'your key'
 url = 'https://commentanalyzer.googleapis.com/v1alpha1/comments:analyze?key=' + API_KEY
 
 # Initialize the Rouge scorer
