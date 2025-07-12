@@ -23,5 +23,5 @@ bert_score
 tqdm
 scikit-learn
 openai
-wmd
+# wmd
 requests
