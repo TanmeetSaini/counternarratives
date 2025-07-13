@@ -13,7 +13,7 @@ from tqdm import tqdm
 from transformers import BertConfig, BertForSequenceClassification, BertTokenizer, BertForMaskedLM
 from transformers import glue_convert_examples_to_features, logging
 from transformers.data.processors.utils import InputExample
-from wmd import WMD
+#from wmd import WMD
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 """ Processing """
@@ -244,41 +244,14 @@ def get_redundancy_score(all_summary):
     return redundancy_score
 
 
-@Language.component("simhook")
-def SimilarityHook(doc):
-    return WMD.SpacySimilarityHook(doc)
+# @Language.component("simhook")
+# def SimilarityHook(doc):
+#     return WMD.SpacySimilarityHook(doc)
 
 
 def get_focus_score(all_summary):
-
-    def compute_sentence_similarity():
-        nlp = spacy.load('en_core_web_md')
-        nlp.add_pipe('simhook', last=True)
-        all_score = []
-        for i in range(len(all_summary)):
-            if len(all_summary[i]) == 1:
-                all_score.append([1.0])
-                continue
-            score = []
-            for j in range(1, len(all_summary[i])):
-                doc1 = nlp(all_summary[i][j - 1])
-                doc2 = nlp(all_summary[i][j])
-                try:
-                    score.append(1.0 /
-                                 (1.0 + math.exp(-doc1.similarity(doc2) + 7)))
-                except:
-                    score.append(1.0)
-            all_score.append(score)
-        return all_score
-
-    all_score = compute_sentence_similarity()
-    focus_score = [0.0 for x in range(len(all_summary))]
-    for i in range(len(all_score)):
-        if len(all_score[i]) == 0:
-            continue
-        if min(all_score[i]) < 0.05:
-            focus_score[i] -= 0.1
-    return focus_score
+    # WMD-based similarity disabled; returning zero focus scores to avoid errors
+    return [0.0 for _ in all_summary]
 
 
 def get_gruen(candidates):
